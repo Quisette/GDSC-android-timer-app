@@ -1,7 +1,6 @@
 package com.example.gdsc2
 
 import android.content.Intent
-import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var countDownTimer: CountDownTimer
 
     //  Our media player to play media
-    lateinit var mediaPlayer: MediaPlayer
 
 
     // when this activity starts:
@@ -57,9 +55,6 @@ class MainActivity : AppCompatActivity() {
         minuteInput = findViewById(R.id.minuteInput)
         secondInput= findViewById(R.id.secondInput)
 
-        //  create mediaPlayer object with the sound we want
-
-        mediaPlayer = MediaPlayer.create( this, R.raw.se)
 
         //  Change the status bar text
 
@@ -69,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         //  when toggleButton clicks
 
         toggleButton.setOnClickListener {
+
             // error detection of invalid input
             // the program will crash on empty input without this detection
 
