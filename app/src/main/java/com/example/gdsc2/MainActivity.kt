@@ -25,15 +25,13 @@ class MainActivity : AppCompatActivity() {
     // global variables
 
     // A flag indicating if the timer is running
-    var isTicking  = false
+
 
     // Time Remaining
     var remainingTime  = 0
 
     //  Our countdown timer
     lateinit var countDownTimer: CountDownTimer
-
-    //  Our media player to play media
 
 
     // when this activity starts:
@@ -82,16 +80,17 @@ class MainActivity : AppCompatActivity() {
             val minute  = Integer.parseInt(minuteInput.text.toString())
             val second  = Integer.parseInt(secondInput.text.toString())
 
-            // if the remaining time reaches to zero, the remaining time should be reset.
-            // Otherwise, remaining time should be its current state.
 
-            remainingTime = if(remainingTime == 0) (second + 60 * minute) else remainingTime
+            // sets remaining time
 
-            //  If the timer is not running
-            if(!isTicking){
-                isTicking = true                            // change the state
-                resetButton.visibility = View.VISIBLE       // shows reset button
-                toggleButton.text = "pause"                 // change the text of toggle button
+            remainingTime =  /* sets remaining time */ ;
+
+
+
+
+            if(/*  the flag of timer status is stopped*/ ){
+
+                toggleButton.text = "stop"                 // change the text of toggle button
 
                 //  Start the timer with the value we set previously
                 countDownTimer = object: CountDownTimer(remainingTime*1000L, 1000L){
@@ -120,31 +119,23 @@ class MainActivity : AppCompatActivity() {
                         // change the toggleButton text to "start"
                         toggleButton.text = "start"
 
-                        // set the timer status to "not ticking"
-                        isTicking = false
+
 
                         // Start a new activity called "FlashActivity"
 
-                        startActivity(Intent(this@MainActivity,FlashActivity::class.java))
+
                         // hide the reset button
-                        resetButton.visibility = View.GONE
 
                     }
-
+                }
 
                 }
                 countDownTimer.start()
 
 
-            } else { //  If the timer is already running, this button works as a pause button
 
-                //  pause the timer
-                countDownTimer.cancel()
-                //  Update the button text and status
-                toggleButton.text = "resume"
-                isTicking = false
 
-            }
+
         }
 
         //  Handle the reset button click
@@ -157,7 +148,6 @@ class MainActivity : AppCompatActivity() {
 
                 //  Reset the statuses
                 remainingTime = 0
-                isTicking = false
 
                 //  Reset the texts
                 textClock.text = "00:00"
