@@ -144,17 +144,18 @@ class MainActivity : AppCompatActivity() {
             if( remainingTime != 0){
 
                 //  Stop the timer
-                countDownTimer.cancel()
+
+
 
                 //  Reset the statuses
-                remainingTime = 0
+
 
                 //  Reset the texts
                 textClock.text = "00:00"
                 toggleButton.text = "Start"
 
                 //  Hide the button after being clicked
-                resetButton.visibility = View.GONE
+
             }
         }
     }
